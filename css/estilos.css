@@ -1,0 +1,250 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Protest+Riot&display=swap");
+/* Resetear márgenes y espaciados de todos los elementos */
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Protest+Riot&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  /* incluye los bordes en el width y height */
+  box-sizing: border-box;
+}
+
+/* cuerpo general para todas las páginas */
+body {
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  font-size: 14;
+  color: #3B2F19;
+  text-align: justify;
+  line-height: 1.5;
+  background-color: #F9FFE0;
+  height: 100vh;
+  min-width: 400px;
+  /* Flexbox */
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* título de sección en página web */
+h1 {
+  font-size: 24;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(244, 199, 112, 0.5019607843);
+  padding-bottom: 15px;
+}
+
+/* contenedor general */
+.contenedor {
+  margin: auto;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  /* Flexbox */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* contenedor específico para header y footer */
+header {
+  font-weight: 600;
+  text-align: center;
+  line-height: 2;
+  background-color: #4BB861;
+  border-bottom: 2px solid #3B2F19;
+  /* Flexbox */
+  align-items: center;
+}
+
+footer {
+  font-weight: 600;
+  text-align: center;
+  line-height: 2;
+  background-color: #4BB861;
+  border-top: 2px solid #3B2F19;
+  /* Flexbox */
+  align-items: center;
+}
+
+/* Resetear márgenes y espaciados de todos los elementos */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  /* incluye los bordes en el width y height */
+  box-sizing: border-box;
+}
+
+/* cuerpo general para todas las páginas */
+body {
+  font-family: "Jost", sans-serif;
+  font-weight: 400;
+  font-size: 14;
+  color: #3B2F19;
+  text-align: justify;
+  line-height: 1.5;
+  background-color: #F9FFE0;
+  height: 100vh;
+  min-width: 400px;
+  /* Flexbox */
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* título de sección en página web */
+h1 {
+  font-size: 24;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(244, 199, 112, 0.5019607843);
+  padding-bottom: 15px;
+}
+
+/* contenedor general */
+.contenedor {
+  margin: auto;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  /* Flexbox */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* contenedor específico para header y footer */
+header {
+  font-weight: 600;
+  text-align: center;
+  line-height: 2;
+  background-color: #4BB861;
+  border-bottom: 2px solid #3B2F19;
+  /* Flexbox */
+  align-items: center;
+}
+
+footer {
+  font-weight: 600;
+  text-align: center;
+  line-height: 2;
+  background-color: #4BB861;
+  border-top: 2px solid #3B2F19;
+  /* Flexbox */
+  align-items: center;
+}
+
+/* Para abrir el desplegable */
+@keyframes aperturaAnimacion {
+  from {
+    scale: 1 0;
+  }
+  to {
+    scale: 1 1;
+  }
+}
+/* Para girar la flecha del botón */
+@keyframes giroFlecha {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(0.5turn);
+  }
+}
+.desplegable {
+  padding: 15px;
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  /* El título del desplegable */
+  /* Un intento de hacerlo interactivo sin JS */
+  /* Si está pulsado */
+}
+.desplegable .fondo-contenedor {
+  padding: 10px;
+  border-style: none;
+  border-radius: 0 0 5px 5px;
+  background-color: #C2EDB3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) inset;
+  transform-origin: top center;
+  animation-name: aperturaAnimacion;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+  animation-play-state: paused;
+  flex: 1;
+}
+.desplegable .fondo-contenedor .contenido {
+  /* CSS grid */
+  display: grid;
+  grid-template-columns: auto;
+  /* En caso pantallas grandes, 3 columnas */
+  gap: 15px 15px;
+  justify-content: center;
+}
+@media (min-width: 480px) {
+  .desplegable .fondo-contenedor .contenido {
+    grid-template-columns: auto auto auto;
+  }
+}
+.desplegable .fondo-contenedor .contenido * {
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+}
+.desplegable .titulo {
+  border: 2px solid #3B2F19;
+  border-radius: 5px;
+  background-color: #4BB861;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* la flechita a la derecha */
+}
+.desplegable .titulo p {
+  flex: 1;
+  font-weight: 600;
+  text-align: left;
+  padding: 10px;
+}
+.desplegable .titulo img {
+  animation-name: giroFlecha;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+  padding: 10px;
+}
+.desplegable:active .fondo-contenedor {
+  animation-name: aperturaAnimacion;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+  animation-play-state: running;
+}
+.desplegable:active .titulo {
+  border-radius: 5px 5px 0 0;
+}
+.desplegable:active .titulo img {
+  animation-name: giroFlecha;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+  animation-play-state: running;
+}
+
+iframe {
+  aspect-ratio: 16/9;
+  height: auto;
+  min-height: 500px;
+  width: 100%;
+}
+
+/*# sourceMappingURL=estilos.css.map */

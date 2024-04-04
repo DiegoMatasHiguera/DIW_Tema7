@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Protest+Riot&display=swap');
+
+//// @access public
+//// @author Diego Matas Higuera
+
+/// Color para la fuente de letra que se empleará en todas las páginas
+/// @group colores
+$color-texto-main: #3B2F19;
+/// Color para el borde del header y footer
+/// @group colores
+$color-borde: #3B2F19;
+/// Colores de fondo básicos que se empleará en todas las páginas
+/// @group colores
+$colores-fondo:("básico":#F9FFE0, 
+                "verde-claro":#C2EDB3, 
+                "verde-medio":#5CCB5F,
+                "verde-oscuro":#4BB861,
+                "naranja":#F4C77080);
+
+/// Fuente de letra básica
+/// @group fuentesDeLetra
+$fuente: "Jost", sans-serif;
+/// Pesos de fuente aceptados, de menor a mayor.
+/// @group fuentesDeLetra
+$fuente-pesos:(400, 500, 600);
+/// Tamaños de fuente aceptados, de menor a mayor.
+/// @group fuentesDeLetra
+$fuente-tamano:(14, 24);
+
+/// FlexBox básica para los elementos de la página.
+/// @group mixins
+/// @param $flexvalor
+///     Si se quiere modificar el valor de flex
+@mixin flexbox($flexvalor:0 1 auto) {
+    flex: $flexvalor;
+    display:flex;
+    flex-direction: column;
+}
+
+/* Resetear márgenes y espaciados de todos los elementos */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    /* incluye los bordes en el width y height */
+    box-sizing: border-box;
+}
+
+/* cuerpo general para todas las páginas */
+body {
+    font-family: $fuente;
+    font-weight: list.nth($fuente-pesos, 1);
+    font-size: list.nth($fuente-tamano, 1);
+    color: $color-texto-main;
+    text-align: justify;
+    line-height: 1.5;
+    
+    background-color: map.get($colores-fondo,"básico");
+    
+    height: 100vh;
+    min-width: 400px;
+    /* Flexbox */
+    @include flexbox();
+}
+
+/* título de sección en página web */
+h1 {
+    font-size: list.nth($fuente-tamano, 2);
+    text-align: center;
+    text-shadow: 0px 4px 4px map.get($colores-fondo,"naranja");
+
+    padding-bottom: 15px;
+}
+
+/* contenedor general */
+.contenedor {
+    margin: auto;
+    padding: 15px;                        
+    width: 100%;
+
+    text-align: center;
+            
+    /* Flexbox */
+    @include flexbox(1);
+}
+
+/* contenedor específico para header y footer */
+/// Contenedor específico para header y footer.
+/// @group mixins
+/// @param {boolean} $bordearriba
+///     Si se quiere borde arriba o abajo
+@mixin contenedorHeaderFooter($bordearriba) {
+    font-weight: list.nth($fuente-pesos, 3);
+    text-align: center;
+    line-height: 2;
+
+    background-color: map.get($colores-fondo,"verde-oscuro");
+    @if ($bordearriba) {
+        border-top: 2px solid $color-borde;
+    } @else {
+        border-bottom: 2px solid $color-borde;
+    }
+    
+    /* Flexbox */        
+    align-items: center;
+}
+
+header {
+    @include contenedorHeaderFooter(false);
+}
+footer {
+    @include contenedorHeaderFooter(true);
+}

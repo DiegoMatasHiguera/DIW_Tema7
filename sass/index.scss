@@ -1,0 +1,11 @@
+@use "sass:list";
+@use "sass:map";
+@import "estilosGenerales";
+@import "subseccionDesplegable";
+
+iframe {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    min-height: 500px;
+    width: 100%;
+}
